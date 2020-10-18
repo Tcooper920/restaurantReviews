@@ -55,6 +55,7 @@ const prepareRestaurantInfo = async () => {
 		<p><span class='name'>${thisRestaurant.name}</span><br>
 		<span class='address-label'>Address:</span> ${thisRestaurant.address}<br>
 		<span class='average-rating-label'>Average Rating:</span> <span class='average-stars'>${thisRestaurant.average}</span> Stars</div>
+		Reviews: ${thisRestaurant.restaurantReviews.join("")}
 		</div>`
 
 		return thisRestaurant.code;
@@ -69,5 +70,6 @@ const printRestaurantInfoToPage = async () => {
 };
 
 printRestaurantInfoToPage();
+
 
 
