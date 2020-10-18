@@ -1,0 +1,73 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Vedge",
+      "address": "1221 Locust St, Philadelphia, PA 19107",
+      "imgUrl": "https://s3-media0.fl.yelpcdn.com/bphoto/TMFHugi3h9V7x-fDBFTpgA/o.jpg"
+    },
+    {
+      "id": 2,
+      "name": "HipCityVeg",
+      "address": "127 S 18th St Philadelphia, PA 19103",
+      "imgUrl": "https://s3-media0.fl.yelpcdn.com/bphoto/hU1DzORTtIKoWjFpiDF7wQ/o.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Spice",
+      "address": "1228 Chestnut St, Philadelphia, PA 19107",
+      "imgUrl": "https://www.spice28.com/images/noodle.jpg?crc=470210869"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "restaurantId": 1,
+      "stars": 5,
+      "text": "Impossibly good vegan food"
+    },
+    {
+      "id": 2,
+      "restaurantId": 1,
+      "stars": 2,
+      "text": "I didn't know they meant vedge literally"
+    },
+    {
+      "id": 3,
+      "restaurantId": 1,
+      "stars": 4,
+      "text": "Amazing food!"
+    },
+    {
+      "id": 4,
+      "restaurantId": 2,
+      "stars": 4,
+      "text": "Amazing food!"
+    },
+    {
+      "id": 5,
+      "restaurantId": 2,
+      "stars": 1,
+      "text": "I didn't know this was all vegan food."
+    },
+    {
+      "id": 6,
+      "restaurantId": 3,
+      "stars": 5,
+      "text": "Delicious food!"
+    },
+    {
+      "id": 7,
+      "restaurantId": 3,
+      "stars": 4,
+      "text": "I'd come back a second time!"
+    },
+    {
+      "id": 8,
+      "restaurantId": 3,
+      "stars": 5,
+      "text": "Great!"
+    }
+  ]
+}
+
