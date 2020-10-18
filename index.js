@@ -44,6 +44,9 @@ const prepareRestaurantInfo = async () => {
 		const averageRatingRounded = Math.round((totalStars / restaurantReviews.length) * 10) / 10;
 		restaurant.average = averageRatingRounded;
 
+		// Sort based on average stars
+		restaurants.sort((a, b) => a.average - b.average).reverse();
+
 	});
 
 	findAverageAndSort();
