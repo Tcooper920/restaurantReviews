@@ -71,3 +71,4 @@ const printRestaurantInfoToPage = async () => {
 printRestaurantInfoToPage();
 
 
+
