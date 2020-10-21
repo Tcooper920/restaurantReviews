@@ -17,6 +17,12 @@
       "name": "Spice",
       "address": "1228 Chestnut St, Philadelphia, PA 19107",
       "imgUrl": "https://www.spice28.com/images/noodle.jpg?crc=470210869"
+    },
+    {
+      "id": 4,
+      "name": "Testing Restaurant",
+      "address": "123 Main Street",
+      "imgUrl": ""
     }
   ],
   "reviews": [
@@ -64,9 +70,9 @@
     },
     {
       "id": 8,
-      "restaurantId": 3,
-      "stars": 5,
-      "text": "Great!"
+      "restaurantId": 4,
+      "stars": 1,
+      "text": "Bad..."
     }
   ]
 }
