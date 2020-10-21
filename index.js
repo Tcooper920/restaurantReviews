@@ -45,7 +45,7 @@ const prepareRestaurantInfo = async () => {
 		restaurant.average = averageRatingRounded;
 
 		// Sort based on average stars
-		restaurants.sort((a, b) => a.average - b.average).reverse();
+		restaurants.sort((a, b) => b.average - a.average);
 
 	});
 
