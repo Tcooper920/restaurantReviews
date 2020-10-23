@@ -69,6 +69,10 @@ overflow: hidden;
 	margin-right: 1.5rem;
 }
 
+.review-container {
+	display: block;
+}
+
 .review {
 	background: white;
 	display: block;

@@ -9,7 +9,7 @@
     {
       "id": 2,
       "name": "HipCityVeg",
-      "address": "127 S 18th St Philadelphia, PA 19103",
+      "address": "127 S 18th St, Philadelphia, PA 19103",
       "imgUrl": "https://s3-media0.fl.yelpcdn.com/bphoto/hU1DzORTtIKoWjFpiDF7wQ/o.jpg"
     },
     {
@@ -20,9 +20,9 @@
     },
     {
       "id": 4,
-      "name": "Testing Restaurant",
-      "address": "123 Main Street",
-      "imgUrl": ""
+      "name": "New Harmony",
+      "address": "135 N 9th St, Philadelphia, PA 19107",
+      "imgUrl": "https://media-cdn.tripadvisor.com/media/photo-s/1a/6a/7f/4a/20191228-201019-largejpg.jpg"
     }
   ],
   "reviews": [
@@ -72,8 +72,7 @@
       "id": 8,
       "restaurantId": 4,
       "stars": 1,
-      "text": "Bad..."
+      "text": "They were closed!"
     }
   ]
 }
-
