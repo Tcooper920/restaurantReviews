@@ -73,6 +73,36 @@
       "restaurantId": 4,
       "stars": 1,
       "text": "They were closed!"
+    },
+    {
+      "restaurantId": 2,
+      "stars": 4,
+      "text": "Great!",
+      "id": 9
+    },
+    {
+      "restaurantId": 4,
+      "stars": 5,
+      "text": "Amazing!!",
+      "id": 10
+    },
+    {
+      "restaurantId": 4,
+      "stars": 1,
+      "text": "Permanently closed...",
+      "id": 11
+    },
+    {
+      "restaurantId": 3,
+      "stars": 5,
+      "text": "Best food in the city!",
+      "id": 12
+    },
+    {
+      "restaurantId": 3,
+      "stars": 5,
+      "text": "Yum!",
+      "id": 13
     }
   ]
 }
