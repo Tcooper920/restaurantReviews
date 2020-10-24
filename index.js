@@ -55,19 +55,29 @@ const prepareRestaurantInfo = async () => {
 
 	return restaurants.map((thisRestaurant) => {
 
-		thisRestaurant.code = `<div class='restaurant-wrapper'>
-		<div class='restaurant-info-container'>
-		<div class='restaurant-image' style="background: url('${thisRestaurant.imgUrl}'); background-size: cover;"></div>
-		<p><span class='name'>${thisRestaurant.name}</span><br>
-		<span class='address-label'>Address:</span> ${thisRestaurant.address}<br>
-		<span class='average-rating-label'>Average Rating:</span> <span class='average-stars'>${thisRestaurant.average}</span> Stars</div>
-		Reviews: 
-		<span class='review-container' id='review-container-${thisRestaurant.id}'>${thisRestaurant.restaurantReviews.join("")}</span>
-		<form>
-		<input class='review-text' id='review-text-${thisRestaurant.id}'>
-		</input><input class='review-stars' id='review-stars-${thisRestaurant.id}'></input>
-		<button class='submit-review-button' id='${thisRestaurant.id}'>Submit Review</button>
-		</form>
+		thisRestaurant.code = `
+		<div class='restaurant-wrapper'>
+			<div class='restaurant-info-container'>
+				<div class='restaurant-image' style="background: url('${thisRestaurant.imgUrl}'); background-size: cover;"></div>
+				<p>
+					<span class='name'>${thisRestaurant.name}</span><br>
+					<span class='address-label'>Address:</span> ${thisRestaurant.address}<br>
+					<span class='average-rating-label'>Average Rating:</span> <span class='average-stars'>${thisRestaurant.average}</span> Stars
+				</p>
+			</div>
+			Reviews: 
+			<span class='review-container' id='review-container-${thisRestaurant.id}'>${thisRestaurant.restaurantReviews.join("")}</span>
+			<form>
+				<input class='review-text' id='review-text-${thisRestaurant.id}' placeholder='Review comment'></input>
+				<select class='review-stars' id='review-stars-${thisRestaurant.id}'>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+					<option value='4'>4</option>
+					<option value='5'>5</option>
+				</select>
+				<button class='submit-review-button' id='${thisRestaurant.id}'>Submit Review</button>
+			</form>
 		</div>`
 
 		return thisRestaurant.code;
@@ -113,8 +123,8 @@ const reviewButtons = async () => {
 			let thisButtonId = parseInt(event.target.id);
 			let thisReviewTextInputField = document.getElementById(`review-text-${event.target.id}`);
 			let thisReviewText = thisReviewTextInputField.value;
-			let thisReviewStarRatingField = document.getElementById(`review-stars-${event.target.id}`);
-			let thisReviewStarRating = parseInt(thisReviewStarRatingField.value);
+			let thisReviewStarDropdown = document.getElementById(`review-stars-${event.target.id}`);
+			let thisReviewStarRating = parseInt(thisReviewStarDropdown.value);
 
 			// If fields aren't empty
 			if (thisReviewText && thisReviewStarRating) {
@@ -125,8 +135,6 @@ const reviewButtons = async () => {
 };
 
 reviewButtons();
-
-
 
 
 
