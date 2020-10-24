@@ -69,6 +69,14 @@ overflow: hidden;
 	margin-right: 1.5rem;
 }
 
+.review-form {
+	display: none;
+}
+
+.display-review-form {
+	display: block;
+}
+
 .review-container {
 	display: block;
 }

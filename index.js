@@ -65,19 +65,22 @@ const prepareRestaurantInfo = async () => {
 					<span class='average-rating-label'>Average Rating:</span> <span class='average-stars'>${thisRestaurant.average}</span> Stars
 				</p>
 			</div>
-			Reviews: 
-			<span class='review-container' id='review-container-${thisRestaurant.id}'>${thisRestaurant.restaurantReviews.join("")}</span>
-			<form>
-				<input class='review-text' id='review-text-${thisRestaurant.id}' placeholder='Review comment'></input>
-				<select class='review-stars' id='review-stars-${thisRestaurant.id}'>
-					<option value='1'>1</option>
-					<option value='2'>2</option>
-					<option value='3'>3</option>
-					<option value='4'>4</option>
-					<option value='5'>5</option>
-				</select>
-				<button class='submit-review-button' id='${thisRestaurant.id}'>Submit Review</button>
-			</form>
+			<div class='reviews-section-wrapper'>
+				<button class='add-review-button'>Add a Review</button>
+				<form class='review-form'>
+					<input class='review-text' id='review-text-${thisRestaurant.id}' placeholder='Review comment'></input>
+					<select class='review-stars' id='review-stars-${thisRestaurant.id}'>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+					</select>
+					<button class='submit-review-button' id='${thisRestaurant.id}'>Submit Review</button>
+				</form>
+				<span class='review-container' id='review-container-${thisRestaurant.id}'>Reviews:<br>
+				${thisRestaurant.restaurantReviews.join("")}</span>
+			</div>
 		</div>`
 
 		return thisRestaurant.code;
@@ -87,7 +90,6 @@ const prepareRestaurantInfo = async () => {
 // Print the restaurant info to the page
 const printRestaurantInfoToPage = async () => {
 	restaurantContainer.innerHTML = await prepareRestaurantInfo();
-	window.location = "#/"
 };
 
 printRestaurantInfoToPage();
@@ -110,9 +112,10 @@ const createReview = async (thisRestaurantId, thisRestaurantStars, thisRestauran
     },
   });
   printRestaurantInfoToPage();
+  addAReviewButton();
 };
 
-// Review button onclick functionality
+// "Submit Review" onclick functionality
 const reviewButtons = async () => {
 	await prepareRestaurantInfo();
 	
@@ -129,12 +132,37 @@ const reviewButtons = async () => {
 			// If fields aren't empty
 			if (thisReviewText && thisReviewStarRating) {
 				createReview(thisButtonId, thisReviewStarRating, thisReviewText);
-			}
+			};
 		};
 	});
 };
 
 reviewButtons();
+
+// "Add a Review" button onclick functionality (Show review form for current restaurant and hide others)
+const addAReviewButton = async () => {
+	await prepareRestaurantInfo();
+
+	const addAReviewButtons = [...document.getElementsByClassName("add-review-button")];
+	const reviewForms = [...document.getElementsByClassName("review-form")];
+
+	document.addEventListener("click", (event) => {
+		if (event.target.matches(".add-review-button")) {
+			const indexOfReviewButton = addAReviewButtons.indexOf(event.target);
+			const thisForm = document.getElementsByClassName("review-form")[indexOfReviewButton];
+
+			reviewForms.forEach((form) => {
+				form.classList.remove("display-review-form");
+			});
+
+			if (thisForm) {
+				thisForm.classList.add("display-review-form");
+			}
+		};
+	});
+};
+
+addAReviewButton();
 
 
 
