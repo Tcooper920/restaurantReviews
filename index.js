@@ -112,7 +112,6 @@ const createReview = async (thisRestaurantId, thisRestaurantStars, thisRestauran
     },
   });
   printRestaurantInfoToPage();
-  addAReviewButton();
 };
 
 // "Submit Review" onclick functionality
