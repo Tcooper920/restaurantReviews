@@ -10,6 +10,15 @@ body {
 	font-size: 1rem;
 }
 
+/* Container for all restaurants */
+.restaurant-container {
+	display: block;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 1rem 1rem 0 1rem;
+}
+
+/* Restaurant blocks */ 
 .restaurant-wrapper {
 	margin-bottom: 2.5rem;
 	padding: 1rem;
@@ -21,13 +30,11 @@ border-radius: 5px;
 overflow: hidden;
 }
 
-.restaurant-container {
-	display: block;
-    max-width: 40rem;
-    margin: 0 auto;
-    padding: 1rem 1rem 0 1rem;
+.inactive:hover {
+	cursor: pointer;
 }
 
+/* image, name, address, average rating container */
 .restaurant-info-container {
 	background: white;
 	display: flex;
@@ -69,18 +76,82 @@ overflow: hidden;
 	margin-right: 1.5rem;
 }
 
+.show-reviews-text {
+	cursor: pointer;
+	font-size: .9rem;
+	color: #6f99bb;
+}
+
+.reviews-section-wrapper {
+	display: none;
+}
+
+.display-review-section-wrapper {
+	display: block;
+}
+
+.add-review-button {
+	cursor: pointer;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: .5rem 1rem .5rem 1rem;
+    margin: .5rem 0 .5rem 0;
+    background-color: #ec9e29;
+    color: white;
+    border-bottom: 2px solid #d28e28;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.add-review-button:hover {
+	background-color: #d28e28;
+}
+
 .review-form {
 	display: none;
 }
 
-.display-review-form {
-	display: block;
+.submit-review-button {
+	cursor: pointer;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: .5rem 1rem .5rem 1rem;
+    background-color: #ec9e29;
+    color: white;
+    border-bottom: 2px solid #d28e28;
+    -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
 }
 
+.review-text {
+	padding-left: .5rem;
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.display-review-form {
+	display: flex;
+	justify-content: space-between;
+	height: 2rem;
+	margin: 1rem 0 1rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px dotted #7098ba;
+}
+
+.display-review-form > * {
+	flex: 1;
+	max-width: 12rem;
+}
+
+/* List of reviews container */
 .review-container {
 	display: block;
 }
 
+/* Individual reviews */
 .review {
 	background: white;
 	display: block;

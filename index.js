@@ -56,25 +56,26 @@ const prepareRestaurantInfo = async () => {
 	return restaurants.map((thisRestaurant) => {
 
 		thisRestaurant.code = `
-		<div class='restaurant-wrapper'>
+		<div class='restaurant-wrapper inactive'>
 			<div class='restaurant-info-container'>
 				<div class='restaurant-image' style="background: url('${thisRestaurant.imgUrl}'); background-size: cover;"></div>
 				<p>
 					<span class='name'>${thisRestaurant.name}</span><br>
 					<span class='address-label'>Address:</span> ${thisRestaurant.address}<br>
-					<span class='average-rating-label'>Average Rating:</span> <span class='average-stars'>${thisRestaurant.average}</span> Stars
+					<span class='average-rating-label'>Average Rating:</span> <span class='average-stars'>${thisRestaurant.average}</span> / 5 Stars
 				</p>
 			</div>
+			<span class='show-reviews-text'>Show Reviews &#9662;</span>
 			<div class='reviews-section-wrapper'>
 				<button class='add-review-button'>Add a Review</button>
 				<form class='review-form'>
 					<input class='review-text' id='review-text-${thisRestaurant.id}' placeholder='Review comment'></input>
 					<select class='review-stars' id='review-stars-${thisRestaurant.id}'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4'>4</option>
-						<option value='5'>5</option>
+						<option value='1'>1 Star</option>
+						<option value='2'>2 Stars</option>
+						<option value='3'>3 Stars</option>
+						<option value='4'>4 Stars</option>
+						<option value='5'>5 Stars</option>
 					</select>
 					<button class='submit-review-button' id='${thisRestaurant.id}'>Submit Review</button>
 				</form>
@@ -156,13 +157,43 @@ const addAReviewButton = async () => {
 
 			if (thisForm) {
 				thisForm.classList.add("display-review-form");
-			}
+			};
 		};
 	});
 };
 
 addAReviewButton();
 
+// Reveal reviews after clicking a restaurant block
+const displayReviewsSection = async () => {
+	await prepareRestaurantInfo();
+
+	const restaurantBlock = [...document.getElementsByClassName("restaurant-wrapper")];
+	const reviewSection = [...document.getElementsByClassName("reviews-section-wrapper")];
+
+	document.addEventListener("click", (event) => {
+		const indexOfRestaurantBlock = restaurantBlock.indexOf(event.target.closest(".restaurant-wrapper"));
+		const thisReviewSectionWrapper = document.getElementsByClassName("reviews-section-wrapper")[indexOfRestaurantBlock];
+
+		// Hide all reviews for all restaurants
+		reviewSection.forEach((reviewWrapperSection) => {
+			reviewWrapperSection.classList.remove("display-review-section-wrapper");
+		});
+
+		// Change cursor to pointer on mousehover for all restaurants
+		restaurantBlock.forEach((restaurant) => {
+			restaurant.classList.add("inactive");
+		});
+
+		// Display selected restaurant reviews and remove pointer cursor on hover
+		if (thisReviewSectionWrapper) {
+			thisReviewSectionWrapper.classList.add("display-review-section-wrapper");
+			restaurantBlock[indexOfRestaurantBlock].classList.remove("inactive");
+		};
+	});
+};
+
+displayReviewsSection();
 
 
 
