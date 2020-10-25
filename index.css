@@ -32,6 +32,8 @@ overflow: hidden;
 
 .inactive:hover {
 	cursor: pointer;
+	opacity: .6;
+    transition: opacity .5s;
 }
 
 /* image, name, address, average rating container */
